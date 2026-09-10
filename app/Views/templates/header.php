@@ -7,6 +7,14 @@
     <title><?= esc($title) ?> | Basic POS</title>
 
     <style>
+        :root {
+            --dark-green: #164A41;
+            --medium-green: #4D774E;
+            --light-green: #9DC88D;
+            --gold-yellow: #F1B24A;
+            --white: #FFFFFF;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -14,8 +22,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
+            background: var(--light-green);
+            color: var(--dark-green);
         }
 
         nav {
@@ -23,23 +31,23 @@
             align-items: center;
             gap: 25px;
             padding: 18px 8%;
-            background: #1e293b;
+            background: var(--dark-green);
         }
 
         .brand {
             margin-right: auto;
-            color: #38bdf8;
+            color: var(--gold-yellow);
             font-size: 22px;
             font-weight: bold;
         }
 
         nav a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
         }
 
         nav a:hover {
-            color: #38bdf8;
+            color: var(--gold-yellow);
         }
 
         .container {
@@ -48,27 +56,30 @@
             min-height: 500px;
             margin: 40px auto;
             padding: 35px;
-            background: white;
+            background: var(--white);
+            border: 2px solid var(--medium-green);
             border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 12px rgba(22, 74, 65, 0.25);
         }
 
         h1 {
-            color: #0f172a;
+            color: var(--dark-green);
         }
 
         .button {
             display: inline-block;
             margin-top: 15px;
             padding: 12px 20px;
-            color: white;
+            color: var(--dark-green);
+            font-weight: bold;
             text-decoration: none;
-            background: #2563eb;
+            background: var(--gold-yellow);
             border-radius: 5px;
         }
 
         .button:hover {
-            background: #1d4ed8;
+            color: var(--white);
+            background: var(--medium-green);
         }
 
         table {
@@ -80,22 +91,26 @@
         th,
         td {
             padding: 12px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--light-green);
             text-align: left;
         }
 
         th {
-            color: white;
-            background: #2563eb;
+            color: var(--white);
+            background: var(--medium-green);
         }
 
         tr:nth-child(even) {
-            background: #f8fafc;
+            background: rgba(157, 200, 141, 0.25);
+        }
+
+        tr:hover {
+            background: rgba(241, 178, 74, 0.20);
         }
 
         footer {
             padding: 20px;
-            color: #64748b;
+            color: var(--dark-green);
             text-align: center;
         }
     </style>
@@ -103,7 +118,7 @@
 
 <body>
     <nav>
-        <span class="brand">Basic POS</span>
+        <span class="brand">POS</span>
 
         <a href="/">Home</a>
         <a href="/about">About</a>
