@@ -2,7 +2,7 @@
 
 <h1>User Accounts</h1>
 
-<p>List of users who can access the POS system:</p>
+<p>List of user records retrieved from the database:</p>
 
 <table>
     <thead>
@@ -10,8 +10,7 @@
             <th>ID</th>
             <th>Username</th>
             <th>Full Name</th>
-            <th>Role</th>
-            <th>Status</th>
+            <th>Created At</th>
         </tr>
     </thead>
 
@@ -20,9 +19,8 @@
             <tr>
                 <td><?= esc($user['id']) ?></td>
                 <td><?= esc($user['username']) ?></td>
-                <td><?= esc($user['name']) ?></td>
-                <td><?= esc($user['role']) ?></td>
-                <td><?= esc($user['status']) ?></td>
+                <td><?= esc($user['full_name']) ?></td>
+                <td><?= esc($user['created_at']) ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

@@ -1,61 +1,92 @@
-# CodeIgniter 4 Framework
+# CodeIgniter Basic POS System
 
-## What is CodeIgniter?
+This project is a basic Point-of-Sale application developed using CodeIgniter 4. It displays customer and user account records retrieved from a MySQL database through CodeIgniter Models and Query Builder.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Features
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- Home page
+- About page
+- Customer Accounts page
+- User Accounts page
+- MySQL database connection
+- CustomerModel and UserModel
+- Database records retrieved using `findAll()`
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Requirements
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- PHP 8.1 or newer
+- XAMPP
+- MySQL or MariaDB
+- CodeIgniter 4
 
-## Important Change with index.php
+## Local Setup
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+1. Place the project folder inside:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+   `D:\XAMPP\htdocs\myproject`
 
-**Please** read the user guide for a better explanation of how CI4 works!
+2. Start Apache and MySQL using the XAMPP Control Panel.
 
-## Repository Management
+3. Open phpMyAdmin:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+   `http://localhost/phpmyadmin`
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+4. Create a database named:
 
-## Contributing
+   `basic_pos_db`
 
-We welcome contributions from the community.
+5. Import the database file:
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+   `database/basic_pos_db.sql`
 
-## Server Requirements
+6. Create a `.env` file in the project root and add:
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+   ```ini
+   CI_ENVIRONMENT = development
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+   app.baseURL = 'http://localhost:8081/'
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+   database.default.hostname = localhost
+   database.default.database = basic_pos_db
+   database.default.username = root
+   database.default.password =
+   database.default.DBDriver = MySQLi
+   database.default.DBPrefix =
+   database.default.port = 3306
+   ```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+7. Start the CodeIgniter development server:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+   ```powershell
+   D:\XAMPP\php\php.exe spark serve --port 8081
+   ```
+
+8. Open the application:
+
+   `http://localhost:8081`
+
+## Database Tables
+
+The application uses two MySQL tables:
+
+- `customers`
+- `users`
+
+Each table contains five sample records.
+
+## Models
+
+The application retrieves database records using:
+
+- `CustomerModel`
+- `UserModel`
+
+Both controllers use the CodeIgniter Model method `findAll()` instead of static PHP arrays.
+
+## Hosted Application
+
+[https://jeypi-codeigniter-pos.infinityfree.me](https://jeypi-codeigniter-pos.infinityfree.me)
+
+## GitHub Repository
+
+[https://github.com/jeypi360/codeigniter-pos-system](https://github.com/jeypi360/codeigniter-pos-system)
